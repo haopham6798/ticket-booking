@@ -1,0 +1,16 @@
+{
+    "name": "haopham/app",
+    "description": "Project WebService",
+    "authors": [
+        {
+            "name": "haopham",
+            "email": "haopham6798@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ws\\": "src/"
+        }
+    }
+}
