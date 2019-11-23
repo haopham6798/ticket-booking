@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($class){
-	$prefix = "WS\\ticket-booking\\";
+	$prefix = "WS\\ticket\\";
 	$base_dir = __DIR__ . '/src/';
 	
 	$len = strlen($prefix);
