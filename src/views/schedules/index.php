@@ -3,7 +3,7 @@
 
     echo "<table>";
     foreach($schedules as $schedule){
-        echo "<tr><td>". $schedule->time_start;
+        echo "$schedule->movie_name";
     }
 
 ?>

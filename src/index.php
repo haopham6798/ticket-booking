@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tickettttt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
 </head>
 <body>
     <h1>Enjoy your film!!!!!!</h1>
     <?php
         require_once('connection.php');
-
+        //echo $_GET['controller'];
+        //secho isset($_GET['controller']);
         if (isset($_GET['controller'])) {
             $controller = $_GET['controller'];
         if (isset($_GET['action'])) {
@@ -19,7 +20,7 @@
         } else {
             $action = 'index';
         }
-        } else {
+         }else {
             $controller = 'pages';
             $action = 'home';
         }
