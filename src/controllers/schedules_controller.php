@@ -8,9 +8,12 @@
         }
 
         public function index() {
-            $schedules = Schedule::all();
-            $data = array('schedules' => $schedules);
-            $this->render('index', $data);
+            if(isset($_SESSION['username'])){
+                
+            }
+        }
+        public function find(){
+            
         }
       
     }

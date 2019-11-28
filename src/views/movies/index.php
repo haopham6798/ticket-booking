@@ -9,7 +9,9 @@
     foreach ($movies as $movie) {
       echo '<li>
         <a href="index.php?controller=movies&action=info&id='. $movie->movie_id. '">' . $movie->movie_name . '</a>
+        <a href="index.php?controller=schedules&action=info&id='. $movie->movie_id. '">' . "Book Now". '</a>
       </li>';
+      
     }
     echo '</ul>';
   ?>

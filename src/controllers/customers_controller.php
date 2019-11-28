@@ -10,15 +10,47 @@
         //     $this->render('index');
         // }
         public function renderLogin() {
-            echo "Hello";
+            //echo $_SESSION['username'];
             $this->render('renderLogin');
         }
 
+        public function renderRegister() {
+            $this->render('renderRegister');
+        }
+
         public function login() {
-           $result = Customer::find($_POST['email']);
-           $customer = array('customers' => $result);
-           //echo $customer->password;
-           // echo "login";
+            if(isset($_POST['email'])){
+                $result = Customer::find($_POST['email']);
+                print_r($result);
+                if($result){
+                    $data = array('customer' => $result);
+                    if(isset($_POST['password'])){
+                        if($_POST['password'] == $data['customer']->password){
+                            echo "dang nhap thanh cong";
+        
+                            $_SESSION['username'] = $data['customer']->name;
+                            //echo $_SESSION['username'];
+                            header("Location: index.php?controller=movies");
+                        }else{
+                            echo "<a href='index.php?controller=customers&action=renderLogin'>Wrong Password! Login Again</a>";
+                            
+                        }
+                    }
+                }
+                else{
+                    echo "<a href='index.php?controller=customers&action=renderLogin'>Not Found Email! Login Again</a>";
+                    }
+               
+            }
+        }
+
+
+        public function register() {
+            if(isset($_POST['email'])){
+                $result = Customer::create($_POST['name'], $_POST['gender'], $_POST['bd'], $_POST['email'],$_POST['password']);
+            }
+            print_r($result);
+            echo "Ban da dang ky thanh cong";
         }
        
     }
