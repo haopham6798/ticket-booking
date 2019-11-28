@@ -1,10 +1,10 @@
 <?php
 $controllers = array(
   'pages' => ['home', 'error'],
-  'movies' => ['index', 'info',],
-  'schedules' => ['index'],
-  'tickets' => ['index','book'],
-  'customers' => ['renderLogin','login','renderRegister', 'register']
+  'movies' => ['index', 'info','create','delete','search'],
+  'schedules' => ['index','create','renderForm','delete','update'],
+  'tickets' => ['index','book','delete'],
+  'customers' => ['renderLogin','login','renderRegister', 'register','delete']
 ); // Các controllers trong hệ thống và các action có thể gọi ra từ controller đó.
 
 // Nếu các tham số nhận được từ URL không hợp lệ (không thuộc list controller và action có thể gọi

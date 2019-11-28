@@ -15,5 +15,8 @@
                         $_POST['customer_customer_id'],$_POST['schedule_schedule_id'], $_POST['seat_id']);
             echo "$ticket";
         }
+        public function delete(){ 
+            
+        }
     }
 ?>
