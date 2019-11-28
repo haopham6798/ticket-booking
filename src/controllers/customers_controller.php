@@ -29,6 +29,7 @@
                             echo "dang nhap thanh cong";
         
                             $_SESSION['username'] = $data['customer']->name;
+                            $_SESSION['customer_id'] = $data['customer']->id;
                             //echo $_SESSION['username'];
                             header("Location: index.php?controller=movies");
                         }else{

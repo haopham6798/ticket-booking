@@ -1,13 +1,13 @@
-<?php
-    echo "Lich chieu phim";
-    if(isset($_SESSION['username'])){
-        echo "session : ".$_SESSION['username'];
-    }else{
-        echo "khong co session";
-    }
-    echo "<table>";
-    foreach($schedules as $schedule){
-        echo "$schedule->movie_name";
-    }
+<html>
+<table>
+    <?php
+        foreach($schedules as $schedule){
+            echo "<tr>";
+            echo "<td>$schedule->movie_name</td>";
+            echo "<tr>";
+        }
 
-?>
+    ?>
+</table>
+
+</html>

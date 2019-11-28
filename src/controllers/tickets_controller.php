@@ -8,12 +8,20 @@
         }
         public function index() {
             //tao form con film va lich
-            $this->render('index');
+            if(isset($_SESSION['username'])){
+                $this->render('index');
+            }else{
+                header("Location: index.php?controller=customers&action=renderLogin");
+            }
         }
         public function book(){
-            $ticket = Ticket::book($_POST['ticket_cost'], $_POST['ticket_date'],
-                        $_POST['customer_customer_id'],$_POST['schedule_schedule_id'], $_POST['seat_id']);
-            echo "$ticket";
+            if(isset($_SESSION['username'])){
+                $ticket = Ticket::book($_POST['ticket_cost'], $_POST['ticket_date'],
+                            $_POST['customer_customer_id'],$_POST['schedule_schedule_id'], $_POST['seat_id']);
+                echo "$ticket";
+            }else{
+                header("Location: index.php?controller=customers&action=renderLogin");
+            }
         }
         public function delete(){ 
             

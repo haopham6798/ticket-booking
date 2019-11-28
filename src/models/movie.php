@@ -3,15 +3,13 @@
         public $movie_id;
         public $movie_name;
         public $movie_length;
-        public $movie_kind;
         public $movie_trailer;
         public $movie_picture;
 
-        function __construct($id, $name, $length, $kind, $trailer, $picture){
+        function __construct($id, $name, $length, $trailer, $picture){
             $this->movie_id = $id;
             $this->movie_name= $name;
             $this->movie_length = $length;
-            $this->movie_kind = $kind;
             $this->movie_trailer = $trailer;
             $this->movie_picture= $picture;
         }
@@ -25,7 +23,7 @@
             //print_r($req->fetchAll());
             foreach ($req->fetchAll() as $item){
                 $movies[] = new Movie($item['movie_id'], $item['movie_name'],
-                $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
+                $item['movie_length'], $item['movie_trailer'],$item['movie_picture']);
             }
             return $movies;
         }
@@ -66,6 +64,16 @@
                 $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
             }
             return $result;
+        }
+        public function update($movie_name, $movie_length, $movie_trailer, $movie_picture) {
+            $db = DB::getInstance();
+            $req = $db->prepare("UPDATE movie 
+                                SET movie_name = :movie_name, movie_length=:movie_length,
+                                movie_trailer = :movie_trailer, movie_picture = :movie_picture
+                                WHERE movie_id = 1");
+            $req->execute(array("movie_name" => $movie_name, "movie_length" =>$movie_length, 
+                                "movie_trailer"=>$movie_trailer, "movie_picture" =>$movie_picture));
+            
         }
        
         

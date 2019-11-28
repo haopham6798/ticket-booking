@@ -41,5 +41,8 @@
             $data = array('movies' => $movies);
             $this->render('index', $data);
         }
+        public function update() {
+            
+        }
     }
 ?>

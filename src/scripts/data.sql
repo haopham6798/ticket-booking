@@ -15,6 +15,8 @@ INSERT INTO `movie_has_kind` (`movie_movie_id`, `kind_kind_id`) VALUES ('1', '2'
 
 INSERT INTO `schedule` (`schedule_id`, `schedule_time_start`, `cinema_cinema_id`, `movie_movie_id`) 
 VALUES ('1', '2019-11-06 00:00:00', '1', '1');
+INSERT INTO `schedule` (`schedule_id`, `schedule_time_start`, `cinema_cinema_id`, `movie_movie_id`) 
+VALUES ('3', '2019-11-13 09:00:00', '2', '2');
 
 INSERT INTO `seat` (`seat_id`, `seat_vertical`, `seat_horizontal`) VALUES (NULL, '2', '3');
 
