@@ -1,7 +1,7 @@
 <?php
 $controllers = array(
   'pages' => ['home', 'error'],
-  'movies' => ['index', 'info',],
+  'movies' => ['index', 'info', 'add'],
   'schedules' => ['index'],
   'tickets' => ['index','book'],
   'customers' => ['renderLogin']
