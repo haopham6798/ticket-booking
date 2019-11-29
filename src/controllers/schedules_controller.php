@@ -32,7 +32,7 @@
         public function find(){
             $result = Schedule::find($_GET['movie_id']);
             $data = array('schedules' =>$result);
-            $this->render('index', $data);
+            $this->render('find', $data);
         }
       
     }

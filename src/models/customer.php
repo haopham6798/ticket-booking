@@ -1,12 +1,13 @@
 <?php
     class Customer {
+        public $id;
         public $name;
         public $gender;
         public $bd;
         public $email;
         public $password;
 
-        public function __construct( $id, $name, $gender, $bd, $email, $password) {
+        public function __construct($id, $name, $gender, $bd, $email, $password) {
             $this->id= $id;
             $this->name= $name;
             $this->gender = $gender;

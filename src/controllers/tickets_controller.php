@@ -9,7 +9,7 @@
         public function index() {
             //tao form con film va lich
             if(isset($_SESSION['username'])){
-                $this->render('index');
+                $this->render('index',array('schedule'=>$_GET['schedule_id']));
             }else{
                 header("Location: index.php?controller=customers&action=renderLogin");
             }
