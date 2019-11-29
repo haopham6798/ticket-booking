@@ -14,9 +14,13 @@
 
         public function info()
         {
-          $movie = Movie::find($_GET['id']);
-          $data = array('movie' => $movie);
-          $this->render('info', $data);
+        //   $movie = Movie::find($_GET['id']);
+        //   $data = array('movie' => $movie);
+          $this->render('info');
+        }
+
+        public function add() {
+            $this->render('add');
         }
 
         public function create() {
