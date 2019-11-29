@@ -39,7 +39,7 @@
             $item = $req->fetch();
             if (isset($item['movie_id'])) {
                 return new Movie($item['movie_id'], $item['movie_name'],
-                    $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
+                    $item['movie_length'], $item['movie_trailer'],$item['movie_picture']);
             }
             return null;
             //echo "loi r";

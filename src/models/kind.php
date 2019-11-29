@@ -31,5 +31,40 @@
             }
             return kinds;
         }
+
+        // public function __construct($id, $name) {
+        //     $this->kind_id =$id;
+        //     $this->kind_name = $name;
+        // }
+        public static function all() {
+            $kinds = [];
+            $db = DB::getInstance();
+            $req = $db->prepare("SELECT * FROM kind as k inner join movie_has_kind as mk 
+                                on k.kind_id = mk.kind_id
+                                inner join movie as m on m.movie_id =mk.movie_id");
+            $req->execute(array("id"=>$id));
+            foreach ($req->fetchAll() as $item){
+                $kinds[] = new Kind($item['kind_id'], $item['kind_name'],$item['movie_id'],
+                $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
+            }
+            return kinds;
+        }
+
+
+
+
+        // public static function all() {
+        //     $kinds = [];
+        //     $db = DB::getInstance();
+        //     $req = $db->query("Select * From kind");
+            
+        //     foreach ($req->fetchAll() as $item){
+        //         $kinds[] = new Kind($item['kind_id'], $item['kind_name']);
+        //     }
+            
+        //     return $kinds;
+        // }
+
     }
+
 ?>

@@ -34,8 +34,8 @@
                 }
             }
             else {
-                $controller = 'pages';
-                $action = 'home';
+                $controller = 'movies';
+                $action = 'index';
             }
             require_once('routes.php');
         ?>
