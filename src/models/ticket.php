@@ -23,7 +23,7 @@
             $db = DB::getInstance();
             $req = $db->prepare("DELETE FROM ticket where ticket_id = :ticket_id");
             $req->execute(array('ticket_id' => $ticket_id));
-            
+            return $req;
         }
     }
 ?>

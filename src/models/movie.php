@@ -46,10 +46,10 @@
         }
 
         //create new movie
-        public function create($id, $name, $length, $kind, $trailer, $picture){
+        public function create($id, $name, $length, $trailer, $picture){
             $db = DB::getInstance();
-            $req = $db->prepare("INSERT INTO movie (movie_id, movie_name, movie_length, movie_kind, movie_trailer, movie_picture) 
-                     VALUES (':id', ':name', ':length', ':kind', ':trailer', ':picture')");
+            $req = $db->prepare("INSERT INTO movie (movie_id, movie_name, movie_length, movie_trailer, movie_picture) 
+                     VALUES (':id', ':name', ':length', ':trailer', ':picture')");
             return $req;
         }
 

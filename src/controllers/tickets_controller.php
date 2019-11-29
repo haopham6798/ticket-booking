@@ -20,11 +20,15 @@
                             $_POST['customer_customer_id'],$_POST['schedule_schedule_id'], $_POST['seat_id']);
                 echo "$ticket";
             }else{
-                header("Location: index.php?controller=customers&action=renderLogin");
+                //alert("Hello\nHow are you?"); 
             }
         }
         public function delete(){ 
-            
+            $result = Ticket::delete( $_GET['ticket_id']);
+            if($result){
+                print_r($result);
+            }
+            header("Location: index.php?controller=tickets");
         }
     }
 ?>

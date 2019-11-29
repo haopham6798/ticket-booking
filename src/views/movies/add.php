@@ -1,6 +1,6 @@
 
 <div class="body">
-    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" >
+    <form class="form-horizontal" action="index.php?controller=movies&action=create" method="POST" enctype="multipart/form-data" >
         <table class="table">
             <tr>
                 <td>
@@ -34,16 +34,21 @@
                     <div class="form-group" >
                         <input type="text" class="form-control" id="movie_name" placeholder="Movie Name" required>
                     </div>
+                   
                     <table class="table">
+
+                    
                         <tr>
                             <td>
-                                <label for="movie_name" class="col-sm-2 control-label">Lenght</label>
+                                <label for="movie_length" class="col-sm-2 control-label">Lenght</label>
                             </td>
 
                             <td>
-                                <input type="number" class="form-control" id="movie_lenght" placeholder="Movie lenght" required>
+                                <input type="number" class="form-control" name="movie_length" id="movie_lenght" placeholder="Movie lenght" required>
                             </td>
                         </tr>
+
+                        
 
                         <tr>
                             <td>
@@ -101,7 +106,7 @@
         <div class="file-field input-img">
             <div class="input-group mb-3">    
                 <div class="custom-file input-picture">
-                    <input type="file" class="custom-file-input" id="trailer_input" name="movie_picture" 
+                    <input type="file" class="custom-file-input" id="trailer_input" name="movie_trailer" 
                         aria-describedby="movie_trailer" accept="video/*">
                     <label class="custom-file-label" for="trailer_input">Choose clip</label>
                     

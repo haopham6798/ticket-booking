@@ -36,7 +36,7 @@
                 $picture = file_get_contents($_FILES['picture']['tmp_name']);
                 $picture = addslashes($picture);
             }
-            $movie = Movie::create($_POST['id'], $_POST['name'], $_POST['length'], $_POST['kind'], $_POST['trailer'], $_POST['picture']);
+            $movie = Movie::create($_POST['movie_id'], $_POST['movie_name'], $_POST['movie_length'], $_POST['trailer'], $_POST['picture']);
             header("Location: index.php?controller=movies");
         }
 

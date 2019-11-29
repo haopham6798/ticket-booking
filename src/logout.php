@@ -2,8 +2,8 @@
  
 if (isset($_SESSION['username'])){
     unset($_SESSION['username']); // xóa session login
-    header("Location: index.php?controller=customers&action=renderLogin");
+    header("Location: index.php");
 }else{
-    header("Location: index.php?controller=customers&action=renderLogin");
+    header("Location: index.php");
 }  
 ?>
