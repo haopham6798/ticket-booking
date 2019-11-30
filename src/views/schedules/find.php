@@ -6,13 +6,11 @@
             // echo $times[0]."    ";
     ?>
 
-            
             <a href="index.php?controller=schedules&actine=find&date=<?php echo $times[0];?>">
                 <button type="button" class="btn btn-outline-secondary">
                 <?php echo $times[0]; ?>
                 </button>
             </a>
-
 
     <?php
             // echo $times[1];
