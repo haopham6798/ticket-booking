@@ -39,17 +39,17 @@
             $item = $req->fetch();
             if (isset($item['movie_id'])) {
                 return new Movie($item['movie_id'], $item['movie_name'],
-                    $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
+                    $item['movie_length'], $item['movie_trailer'],$item['movie_picture']);
             }
             return null;
             //echo "loi r";
         }
 
         //create new movie
-        public function create($id, $name, $length, $kind, $trailer, $picture){
+        public function create($id, $name, $length, $trailer, $picture){
             $db = DB::getInstance();
-            $req = $db->prepare("INSERT INTO movie (movie_id, movie_name, movie_length, movie_kind, movie_trailer, movie_picture) 
-                     VALUES (':id', ':name', ':length', ':kind', ':trailer', ':picture')");
+            $req = $db->prepare("INSERT INTO movie (movie_id, movie_name, movie_length, movie_trailer, movie_picture) 
+                     VALUES (':id', ':name', ':length', ':trailer', ':picture')");
             return $req;
         }
 
