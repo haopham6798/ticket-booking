@@ -1,6 +1,7 @@
 <?php
     require_once('controllers/base_controller.php');
     require_once('models/movie.php');
+    require_once('models/kind.php');
     class MoviesController extends BaseController {
         function __construct() {
             $this->folder = "movies";
@@ -8,19 +9,23 @@
 
         public function index() {
             $movies = Movie::all();
-            $data = array('movies' => $movies);
+            $kinds = Kind::all();
+            $data = array('movies' => $movies, 'kinds' => $kinds);
             $this->render('index', $data);
         }
 
         public function info()
         {
-        //   $movie = Movie::find($_GET['id']);
-        //   $data = array('movie' => $movie);
-          $this->render('info');
+          $movie = Movie::find($_GET['movie_id']);
+          $data = array('movie' => $movie);
+          
+          $this->render('info', $data);
         }
 
         public function add() {
-            $this->render('add');
+            $kinds = Kind::all();
+            $data = array('kinds' => $kinds);
+            $this->render('add', $data);
         }
 
         public function create() {
@@ -36,7 +41,7 @@
                 $picture = file_get_contents($_FILES['picture']['tmp_name']);
                 $picture = addslashes($picture);
             }
-            $movie = Movie::create($_POST['id'], $_POST['name'], $_POST['length'], $_POST['kind'], $_POST['trailer'], $_POST['picture']);
+            $movie = Movie::create($_POST['id'], $_POST['name'], $_POST['length'], $_POST['trailer'], $_POST['picture']);
             header("Location: index.php?controller=movies");
         }
 
