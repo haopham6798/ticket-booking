@@ -50,7 +50,8 @@
                                 <label for="movie_trailer" class="col-sm-6 control-label">Trailer</label>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
+                                <input type="text" id="input-trailer" class="form-control" value="">
+                                <button id="btn-trailer" type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
                                     Show trailer
                                 </button>
                             </td>
@@ -100,12 +101,6 @@
         <div class="modal-footer">
         <div class="file-field input-img">
             <div class="input-group mb-3">    
-                <div class="custom-file input-picture">
-                    <input type="file" class="custom-file-input" id="trailer_input" name="movie_picture" 
-                        aria-describedby="movie_trailer" accept="video/*">
-                    <label class="custom-file-label" for="trailer_input">Choose clip</label>
-                    
-                </div>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
             </div>
             
