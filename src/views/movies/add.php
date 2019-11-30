@@ -1,12 +1,12 @@
 
-<div class="body">
+<div class="create">
     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" >
         <table class="table">
             <tr>
                 <td>
                     <div class="file-field input-img">
                         <div class="z-depth-1-half mb-4 d-flex justify-content-center">
-                            <img width="460" height="215" id="img" src="./assets/images/empty.jpg" class="img-fluid img"
+                            <img style="width: 20rem; height: 25rem" id="img" src="./assets/images/empty.jpg" class="img-fluid img"
                                 alt="example placeholder">
                         </div>
 
@@ -19,15 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="input-img">
-                        <div class="img"><img width="460" height="215" id="img" src="./assets/images/empty.jpg" alt="Your image"><br></div>
-                        <div class="d-flex justify-content-center">
-                            <div class="btn btn-mdb-color btn-rounded float-left">
-                                <span>Choose file</span>
-                                <input type="file" id="img_input" name="game_img" value="" accept="image/*"><br>
-                            </div>
-                        </div>
-                    </div> -->
+                    
                 </td>
                 
                 <td class="mb-8">
@@ -44,7 +36,37 @@
                                 <input type="number" class="form-control" id="movie_lenght" placeholder="Movie lenght" required>
                             </td>
                         </tr>
+                    </table>
+                    <hr>
+                    <div class="form-group" >    
+                        <?php
 
+                        if(count($kinds) > 0) {
+                        // print_r($kind->fetch_assoc());
+                            foreach($kinds as $kind) {
+                            
+                        ?>
+
+                        <!-- gia tri kind_id dc chon se luu vao mang movie_kind -->
+                        <span>
+                            <label><?php echo $kind->kind_name."  "?> 
+                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_id?>'>
+                                <span class="checkmark"></span>
+                            </label>   
+                        </span>
+
+
+                        <?php
+                            }
+                        }
+                        else {
+                            echo  "<div class='item'>There is no kind, please add some kind!!!</div>";
+
+
+                        }
+                        ?>
+                    </div>
+                    <table class="table">                
                         <tr>
                             <td>
                                 <label for="movie_trailer" class="col-sm-6 control-label">Trailer</label>
@@ -58,6 +80,10 @@
                         
                     </table>                  
                     <!-- Kind -->
+
+                    
+
+
                     <div class="float-right">
                         
                         <button type="submit" class="btn btn-primary offset-md-4" >Submit</button>
@@ -89,6 +115,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
+
         <div class="modal-body">
             <div class="z-depth-1-half mb-4 d-flex justify-content-center">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -97,6 +124,7 @@
                 
             </div>
         </div>
+
         <div class="modal-footer">
         <div class="file-field input-img">
             <div class="input-group mb-3">    
