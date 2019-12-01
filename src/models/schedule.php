@@ -78,5 +78,24 @@
             return $timestarts;
         }
        
+
+        // Test function 
+        public function search($movie_id, $date) {
+            $date_0h = $date." "."00:00:00";
+            $date_24h = $date." "."23:59:59";
+            $schedulesID = [];
+            $db = DB::getInstance();
+            $req = $db->prepare('SELECT * FROM schedule 
+                                            WHERE movie_movie_id = :movie_id
+                                            AND columname BETWEEN :date_0h AND :date_24h' );
+                                            
+            $req->execute(array('movie_id' => $movie_id, "date_0h" => $date_0h, "date_24h" => $date_24h));
+
+            foreach($req->fetchAll() as $item){
+                $schedulesID[] = new Schedule($item['schedule_id'], $item['schedule_time_start'],
+                            $item['cinema_cinema_id'], $item['movie_id'],$item['movie_name']);
+            }
+            return $schedulesID;
+        }
     }
 ?>

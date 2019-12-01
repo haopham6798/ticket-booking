@@ -17,7 +17,7 @@
 
         public function info()
         {
-          $movie = Movie::find($_GET['movie_id']);
+          $movie = Movie::searchById($_GET['movie_id']);
           $data = array('movie' => $movie);
           
           $this->render('info', $data);

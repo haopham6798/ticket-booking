@@ -26,7 +26,8 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Schedule</a>
+          <a class="nav-link" href="index.php?controller=schedules">Schedule</a>
+
         </li>
         <li>
           <a class="nav-link" href="index.php?controller=movies&action=add">Add</a>
