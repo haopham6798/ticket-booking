@@ -12,6 +12,7 @@
 
         public function index() {
             $schedules = Schedule::all();
+
             $movies = Movie::all();
             $data = array('schedules' => $schedules, 'movie' => $movies);
             if($data){
@@ -19,6 +20,7 @@
                 // print_r($data);
             }else{
                 // echo "k co data";
+
             }
             $this->render('index', $data);
         }

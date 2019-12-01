@@ -21,6 +21,7 @@
                 $this->render('index',array('movie_name'=>$movie_name, 'date' => $date, 'time' =>$time));
             }else{
                 // header("Location: index.php?controller=customers&action=renderLogin");   
+
             }
 
         }
