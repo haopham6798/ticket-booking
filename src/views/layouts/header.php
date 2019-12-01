@@ -28,7 +28,7 @@
                       // print_r();
                       ?>
                       
-                      <a class="dropdown-item" href="index.php?kind_id=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
+                      <a class="dropdown-item" href="index.php?controller=movies&kind_name=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
                       <?php
                     }
 
