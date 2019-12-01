@@ -19,9 +19,21 @@
               </a>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#" value="">Action</a>
-                  <a class="dropdown-item" href="#" value="">Another action</a>
-                  <a class="dropdown-item" href="#" value="">Something else here</a>
+                  <?php 
+                    require_once('models/kind.php');
+                    $kinds = Kind::all();
+                    // $kinds = array('kinds'=>$kinds);
+                    // print_r($kinds->kind_id);
+                    foreach($kinds as $kind) {
+                      // print_r();
+                      ?>
+                      
+                      <a class="dropdown-item" href="index.php?kind_id=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
+                      <?php
+                    }
+
+                  ?>
+                  
               </div>
           </div>
         </li>
