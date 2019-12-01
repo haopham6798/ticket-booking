@@ -12,7 +12,7 @@
             $this->schedule_time_start = $time_start;
             $this->cinema_id = $cinema_id;
             $this->movie_id = $movie_id;
-            $this->movie_name = $movie_name;
+            $this->movie_name =$movie_name;
         }
 
         //get all schedule
@@ -43,6 +43,20 @@
             }
             return $schedulesID;
         }
+        // public function findByName($movie_name) {
+        //     $schedulesID = [];
+        //     $db = DB::getInstance();
+        //     $req = $db->prepare('SELECT * FROM schedule inner join movie 
+        //                                     on schedule.movie_movie_id = movie.movie_id 
+        //                                     WHERE movie_movie_name = :m_name');
+        //     $req->execute(array('m_name' => $movie_name));
+
+        //     foreach($req->fetchAll() as $item){
+        //         $schedulesID[] = new Schedule($item['schedule_id'], $item['schedule_time_start'],
+        //                     $item['cinema_cinema_id'], $item['movie_id'],$item['movie_name']);
+        //     }
+        //     return $schedulesID;
+        // }
 
         // create new schedule
         public function create($id, $time, $ci_id, $movie_id){
@@ -50,6 +64,18 @@
             $req = $db->prepare("INSERT INTO schedule (schedule_id, schedule_time_start, cinema_cinema_id, movie_movie_id) 
             VALUES (':id', ':time', ':ci_id', 'movie_id');");
             $req->execute(array('id'=>$id, 'time'=>$time, 'ci_id'=>$ci_id, 'movie_id'=>$movie_id));
+        }
+        public function getDate($time){
+            $timestarts = [];
+            $db = DB::getInstance();
+            $req = $db->query("SELECT * FROM schedule where schedule_time_start 
+                                LIKE '%$time%' --order by schedule_time_start");
+            //$req->execute(array("timestart" => $time));
+            foreach($req->fetchAll() as $item){
+                $timestarts[] = new Schedule($item['schedule_id'], $item['schedule_time_start'],
+                $item['cinema_cinema_id'], $item['movie_id']);
+            }
+            return $timestarts;
         }
        
 

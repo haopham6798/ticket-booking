@@ -11,19 +11,20 @@
             $this->schedule_id =$schedule_id;
         }
 
-        public function book($ticket_cost, $ticket_date,  $schedule_id, $customer_email) {
+        public function book($ticket_cost, $ticket_date,  $schedule_id, $customer_id) {
             $schedules = [];
             $db = DB::getInstance();
-            $req = $db->prepare("INSERT INTO ticket (ticket_cost, ticket_date, schedule_schedule_id, customer_customer_email) 
-                                VALUES (':ticket_cost', ':ticket_date', ':schedule_id', ':customer_email')");
+            $req = $db->prepare("INSERT INTO ticket (ticket_cost, ticket_date, customer_customer_id, schedule_schedule_id) 
+                                VALUES (':ticket_cost', ':ticket_date', :customer_id,':schedule_id')");
             $req->execute(array('ticket_cost' =>$ticket_cost, 'ticket_date'=> $ticket_date,
-                                'schedule_id' => $schedule_id,'customer_email' => $customer_email ));
+                                'schedule_id' => $schedule_id,'customer_id' => $customer_id ));
         }
+        
         public function delete($ticket_id){
             $db = DB::getInstance();
             $req = $db->prepare("DELETE FROM ticket where ticket_id = :ticket_id");
             $req->execute(array('ticket_id' => $ticket_id));
-            
+            return $req;
         }
     }
 ?>

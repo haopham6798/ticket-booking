@@ -2,7 +2,9 @@
     <?php
         $sches = [];
         $days = [];
+        $movie_id;
         foreach($schedules as $schedule) {
+            $movie_id = $schedule->movie_id;
             $sches[] = explode(" ", $schedule->schedule_time_start);
             $days[] = explode(" ", $schedule->schedule_time_start)[0];
         }
@@ -23,13 +25,13 @@
 
         // print_r($uses[0]);
 
-        foreach($schedules as $schedule) {
+        foreach($days as $day) {
     ?>
         <a href="index.php?controller=schedules&action=find&movie_id=<?php 
-            echo $schedule->movie_id ?>&date=<?php echo explode(" ", $schedule->schedule_time_start)[0]; ?>">
+            echo $movie_id ?>&date=<?php echo  $day; ?>">
 
-            <button id="btn-schedule" type="button" class="btn btn-outline-secondary" value=<?php echo explode(" ", $schedule->schedule_time_start)[0]; ?>>
-                <?php  echo explode(" ", $schedule->schedule_time_start)[0]; ?>
+            <button id="btn-schedule" type="button" class="btn btn-outline-secondary" value=<?php echo  $day; ?>>
+                <?php  echo $day; ?>
             </button>
         </a>
     <?php
@@ -64,7 +66,23 @@
         }
     }
     else  {
-        print_r("healshdoahosdhahf");
+        
+            // print_r(key($uses[0]));
+            $use = $uses[0];
+            foreach($use[key($use)] as $time) {
+                // print_r($time);
+    ?>
+
+    <a href="index.php?controller=tickets&movie_id=<?php 
+            echo $schedule->movie_id ?>&date=<?php echo key($use); ?>&time=<?php echo($time);  ?>">
+        <button type="button" class="btn btn-secondary" >
+            <?php echo($time); ?>
+        </button>
+    </a>
+
+    <?php
+            }
+        
     }
     ?>
     

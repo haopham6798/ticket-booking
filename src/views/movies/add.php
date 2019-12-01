@@ -1,6 +1,6 @@
 
-<div class="create">
-    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" >
+<div class="body">
+    <form class="form-horizontal" action="index.php?controller=movies&action=create" method="POST" enctype="multipart/form-data" >
         <table class="table">
             <tr>
                 <td>
@@ -11,7 +11,6 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            
                             <div class="custom-file input-picture">
                                 <input type="file" class="custom-file-input" id="img_input" name="movie_picture" 
                                     aria-describedby="movie_picture" accept="image/*">
@@ -24,16 +23,19 @@
                 
                 <td class="mb-8">
                     <div class="form-group" >
-                        <input type="text" class="form-control" id="movie_name" placeholder="Movie Name" required>
+                        <input type="text" class="form-control" id="movie_name" name="movie_name" placeholder="Movie Name" required>
                     </div>
+                   
                     <table class="table">
+
+                    
                         <tr>
                             <td>
-                                <label for="movie_name" class="col-sm-2 control-label">Lenght</label>
+                                <label for="movie_length" class="col-sm-2 control-label">Lenght</label>
                             </td>
 
                             <td>
-                                <input type="number" class="form-control" id="movie_lenght" placeholder="Movie lenght" required>
+                                <input type="number" class="form-control" name="movie_length" id="movie_lenght" placeholder="Movie lenght" required>
                             </td>
                         </tr>
                     </table>
@@ -50,7 +52,7 @@
                         <!-- gia tri kind_id dc chon se luu vao mang movie_kind -->
                         <span>
                             <label><?php echo $kind->kind_name."  "?> 
-                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_id?>'>
+                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_name?>'>
                                 <span class="checkmark"></span>
                             </label>   
                         </span>
@@ -72,6 +74,8 @@
                                 <label for="movie_trailer" class="col-sm-6 control-label">Trailer</label>
                             </td>
                             <td>
+                            <!-- https://www.youtube.com/embed/zpOULjyy-n8?rel=0 -->
+                                <input class="form-control" type="text" id="movie-trailer" name="movie_trailer" value="">
                                 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
                                     Show trailer
                                 </button>
@@ -81,9 +85,6 @@
                     </table>                  
                     <!-- Kind -->
 
-                    
-
-
                     <div class="float-right">
                         
                         <button type="submit" class="btn btn-primary offset-md-4" >Submit</button>
@@ -91,22 +92,11 @@
                     </div>
                 
                 </td>
-
-
                 
             </tr>
           
         </table>
-    
-
-        
-    </form>
-</div>
-
-
-
-
-<div class="modal fade" id="trailer-modal" tabindex="-1" role="dialog" aria-labelledby="trailer-modal" aria-hidden="true">
+        <div class="modal fade" id="trailer-modal" tabindex="-1" role="dialog" aria-labelledby="trailer-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -119,7 +109,7 @@
         <div class="modal-body">
             <div class="z-depth-1-half mb-4 d-flex justify-content-center">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="trailer" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    <iframe id="trailer" class="embed-responsive-item" src="" allowfullscreen></iframe>
                 </div>
                 
             </div>
@@ -128,12 +118,6 @@
         <div class="modal-footer">
         <div class="file-field input-img">
             <div class="input-group mb-3">    
-                <div class="custom-file input-picture">
-                    <input type="file" class="custom-file-input" id="trailer_input" name="movie_picture" 
-                        aria-describedby="movie_trailer" accept="video/*">
-                    <label class="custom-file-label" for="trailer_input">Choose clip</label>
-                    
-                </div>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
             </div>
             
@@ -143,3 +127,11 @@
     </div>
   </div>
 </div>
+
+        
+    </form>
+</div>
+
+
+
+
