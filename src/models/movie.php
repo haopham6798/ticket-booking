@@ -32,7 +32,7 @@
 
 
         // find info of movie
-        static function find($id)
+        static function searchByID($id)
         {
             $db = DB::getInstance();
             $req = $db->prepare('SELECT * FROM movie WHERE movie_id = :id');
@@ -41,7 +41,7 @@
             $item = $req->fetch();
             if (isset($item['movie_id'])) {
                 return new Movie($item['movie_id'], $item['movie_name'],
-                    $item['movie_length'], $item['movie_trailer'],$item['movie_picture']);
+                    $item['movie_length'],$item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
             }
             return null;
             //echo "loi r";
@@ -57,17 +57,33 @@
         }
 
         //search movie by name
-        public function search($m_name) {
+        public function searchByName($m_name) {
             $result=[];
             $db = DB::getInstance();
-            $req = $db->prepare("SELECT * FROM movie WHERE movie_name LIKE %:m_name%");
-            $req->execute(array('m_name' => $m_name));
+            $req = $db->query("SELECT * FROM movie WHERE movie_name LIKE '%$m_name%'");
+            //$req->execute(array('m_name' => $m_name));
             foreach ($req->fetchAll() as $item){
                 $result[] = new Movie($item['movie_id'], $item['movie_name'],
                 $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
             }
             return $result;
         }
+
+        public function searchByKind($m_kind) {
+            $result=[];
+            $db = DB::getInstance();
+            $req = $db->query("SELECT movie_id, movie_name, movie_length,movie_kind, movie_trailer, movie_picture 
+                FROM kind as k inner join movie_has_kind as mk on k.kind_id = mk.kind_kind_id
+                         inner join movie as m on m.movie_id =mk.movie_movie_id
+                                        WHERE k.kind_name LIKE '%$m_kind%'");
+            //$req->execute(array('m_name' => $m_name));
+            foreach ($req->fetchAll() as $item){
+                $result[] = new Movie($item['movie_id'], $item['movie_name'],
+                $item['movie_length'], $item['movie_kind'], $item['movie_trailer'],$item['movie_picture']);
+            }
+            return $result;
+        }
+        
         public function update($movie_name, $movie_length, $movie_trailer, $movie_picture) {
             $db = DB::getInstance();
             $req = $db->prepare("UPDATE movie 

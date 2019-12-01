@@ -52,7 +52,7 @@
                         <!-- gia tri kind_id dc chon se luu vao mang movie_kind -->
                         <span>
                             <label><?php echo $kind->kind_name."  "?> 
-                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_id?>'>
+                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_name?>'>
                                 <span class="checkmark"></span>
                             </label>   
                         </span>
@@ -84,9 +84,6 @@
                         
                     </table>                  
                     <!-- Kind -->
-
-                    
-
 
                     <div class="float-right">
                         
