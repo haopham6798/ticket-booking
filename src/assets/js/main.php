@@ -28,19 +28,32 @@
                 });
             }
 
+            function readVideoURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    
+
+                    reader.onload = function(e) {
+                        $('#trailer').attr('src', e.target.result);
+                    }
+
+
+                    reader.readAsDataURL(input.files[0]);
+                    console.log("hello world");
+                }
+            }
+
             
 
             $("#img_input").change(function() {
                 readURL(this);
             });
-            
-            $("#btn-trailer").click(function() {
-                // console.log($("#input-trailer").val());
-                url = 'https://www.youtube.com/embed/' + $("#input-trailer").val().split('=')[1]
-                console.log(url);
-                $("#trailer").attr('src', url) ;
+
+            $("#trailer_input").change(function() {
+                readVideoURL(this);
             });
-            
 
             dropdown();
 
@@ -50,12 +63,8 @@
                 $('#login-modal').modal('hide');
             });
             
-            
         })
 
 
-
-        
-        
 
 </script>

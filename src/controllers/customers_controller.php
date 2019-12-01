@@ -28,7 +28,7 @@
                         if($_POST['password'] == $data['customer']->password){
                             //echo "dang nhap thanh cong";
                             $_SESSION['username'] = $data['customer']->name;
-                            $_SESSION['id'] = $data['customer']->id;
+                            $_SESSION['customer_id'] = $data['customer']->id;
                             echo $_SESSION['username'];
                             echo "<a href='index.php?controller=movies'>Success Login! Continue</a>";
                         }else{

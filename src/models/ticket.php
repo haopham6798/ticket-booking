@@ -17,10 +17,12 @@
         public function book($ticket_cost, $ticket_date, $seat_id, $movie_id, $customer_id) {
             //$schedules = [];
             $db = DB::getInstance();
+            echo $ticket_cost;
             $req = $db->prepare("INSERT INTO ticket (ticket_cost, ticket_date, seat_seat_id, movie_movie_id, customer_customer_id) 
                                 VALUES (:ticket_cost, :ticket_date, :seat_id,:movie_id, :customer_id)");
             $req->execute(array('ticket_cost' =>$ticket_cost, 'ticket_date'=> $ticket_date,
                                 'seat_id' => $seat_id,'movie_id'=>$movie_id,'customer_id' => $customer_id ));
+                              
         }
         
     }

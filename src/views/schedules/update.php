@@ -1,14 +1,14 @@
 <html>
     <body>
         <div>
-            <form action="index.php?controller=schedules&action=create" method="POST">
+            <form action="index.php?controller=schedules&action=update" method="POST">
             <div class="form-group">
-                <label for="schedule_id">Email address</label>
-                <input type="text" class="form-control" id="schedule_id" placeholder="Schedule ID" name="schedule_id">
+                <label for="schedule_id">Schedule ID</label>
+                <input type="text" class="form-control" id="schedule_id" placeholder="Schedule ID" name="schedule_id"value=<?php echo $schedule->schedule_id?>>
             </div>
             <div class="form-group">
                 <label for="schedule_time_start">Time Start</label>
-                <input type="datetime-local" class="form-control" id="schedule_time_start" value="2019-01-01 05:00:00"name="schedule_time_start">
+                <input type="datetime-local" class="form-control" id="schedule_time_start" name="schedule_time_start" value=<?php echo $schedule->schedule_time_start?>>
                 
             </div>
             <div class="form-group">

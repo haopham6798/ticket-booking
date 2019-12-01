@@ -2,7 +2,7 @@
 $controllers = array(
   'pages' => ['home', 'error'],
   'movies' => ['index', 'info','add','create','delete','searchByName', 'searchByKind'],
-  'schedules' => ['index','create','renderForm','delete','update','find'],
+  'schedules' => ['index','create','renderForm','delete','update','renderUpdateForm'],
   'tickets' => ['index','book','delete'],
   'customers' => ['renderLogin','login','renderRegister', 'register','delete']
 ); // Các controllers trong hệ thống và các action có thể gọi ra từ controller đó.

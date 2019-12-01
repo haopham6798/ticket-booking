@@ -1,35 +1,34 @@
-
-<form>
+<form action='index.php?controller=tickets&action=book' method='post'>
     <div class="form-group">
-        <label for="user">Customer</label>
-        <textarea type="text" class="form-control" id="user" aria-describedby="Customer" placeholder="Customer"> <?php echo $_SESSION['username']?> </textarea>
+        <label for="customer_name">Customer</label>
+        <textarea type="text" name="customer_name"class="form-control" id="customer_name" aria-describedby="Customer" placeholder="Customer"> <?php echo $_SESSION['username']?> </textarea>
     </div>
     <div class="form-group">
-        <label for="user">Movie Name</label>
-        <input type="text" class="form-control" id="user" aria-describedby="Movie Name" 
-          readonly='readonly' placeholder="Customer" value= <?php echo $movie_name?>>
+        <label for="movie_name">Movie Name</label>
+        <input type="text" class="form-control" id="movie_name" name="movie_name" aria-describedby="Movie Name" 
+           placeholder="Customer" value= <?php echo $movie_name?>>
     </div>
     <div class="form-group">
-        <label for="date">Date</label>
-        <input type="datetime-local" class="form-control" id="date" placeholder="Date" value=<?php echo $date."T".$time ?> readonly="readonly">
+        <label for="ticket_date">Date</label>
+        <input type="datetime-local" name="ticket_date"class="form-control" id="date" placeholder="Date" value=<?php echo $date."T".$time ?> readonly="readonly">
     </div>
   
     <div class="dropdown">
     <label for="vertical">Cost  </label> <br>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="cost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="cost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Cost
-        </button>
-        <div class="dropdown-menu" aria-labelledby="cost">
-            <a class="dropdown-item" value=95 >95</a>
-            <a class="dropdown-item" value=75 >75</a>
-            <a class="dropdown-item" value=60 >60</a>
-        </div>
+        </button> -->
+        <select name="ticket_cost" class="form-control" aria-labelledby="cost">
+            <option class="dropdown-item" value=95 >95</option>
+            <option class="dropdown-item" value=75 >75</option>
+            <option class="dropdown-item" value=60 >60</option>
+        </select>
     </div>
     <br>
     <div class="form-group">
         <label for="choose-seat"> Seat </label>
         <br>
-        <input id="choose-seat" type="text" value='' readonly='readonly'>
+        <input id="choose-seat" type="text" name="seat_id" value='' readonly='readonly'>
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
             Choose Seat
         </button>
@@ -60,10 +59,9 @@
         <table class="table" >
 
             <?php
-
-                for ($i = 1; $i <= 10; $i++) {
+                for ($i = 1; $i <= $seat->cinema_horizontal; $i++) {
                     echo "<tr>";
-                    for ($j = 1; $j <= 10; $j++) {
+                    for ($j = 1; $j <= $seat->cinema_vertical; $j++) {
             ?>
 
                     <td>
@@ -77,7 +75,6 @@
                     }
                     echo "</tr>"; 
                 }
-
             ?>
     </table>
       </div>
@@ -91,11 +88,9 @@
 <script type="text/javascript">
 // let nut = document.getElement
     function get_seat(el) {
-
     
     let chooseSeat = document.getElementById('choose-seat');
     console.log(el);
     chooseSeat.value = el.value;
     }
-
 </script>
