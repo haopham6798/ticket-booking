@@ -1,6 +1,7 @@
 <?php
     require_once('controllers/base_controller.php');
     require_once('models/ticket.php');
+    require_once('models/movie.php');
 
     class TicketsController  extends BaseController {
         function __construct() {
@@ -9,11 +10,20 @@
         public function index() {
             //tao form con film va lich
             if(isset($_SESSION['username'])){
-                $this->render('index');
+                
+                $movie_id = $_GET['movie_id'];
+                $result = Movie::searchById($movie_id);
+                $date = $_GET['date'];
+                $time = $_GET['time'];
+                
+                //$movie_name = array('movies'=>$result);
+                $movie_name = $result->movie_name;
+                $this->render('index',array('movie_name'=>$movie_name, 'date' => $date, 'time' =>$time));
             }else{
-                //header("Location: index.php?controller=customers&action=renderLogin");
-                echo "loi";
+                // header("Location: index.php?controller=customers&action=renderLogin");   
+
             }
+
         }
         public function book(){
             if(isset($_SESSION['username'])){

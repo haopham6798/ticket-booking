@@ -12,12 +12,15 @@
 
         public function index() {
             $schedules = Schedule::all();
-            $data = array('schedules' => $schedules);
+
+            $movies = Movie::all();
+            $data = array('schedules' => $schedules, 'movie' => $movies);
             if($data){
-                echo "co data";
-                print_r($data);
+                // echo "co data";
+                // print_r($data);
             }else{
-                echo "k co data";
+                // echo "k co data";
+
             }
             $this->render('index', $data);
         }
