@@ -83,6 +83,26 @@
                 echo "ERROR";
             }
         }
+        
+        public function renderUpdateForm()
+        {
+          $movie = Movie::searchById($_GET['movie_id']);
+          $data = array('movie' => $movie);
+          
+          $this->render('update', $data);
+        }
+
+        public function update() {
+            $kindArr = implode("," , $_POST['movie_kind']);
+            //echo $kindArr;
+            if(isset($_FILES['movie_picture'])){
+                $picture = file_get_contents($_FILES['movie_picture']['tmp_name']);
+                $picture = addslashes($picture);
+            }
+            $movie = Movie::update($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], $picture);
+            //header("Location: index.php?controller=movies");
+            echo "<a href='index.php'>Continue</a>";
+        }
 
     }
 ?>

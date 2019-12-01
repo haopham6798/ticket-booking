@@ -39,6 +39,20 @@
                 echo "chua dang nhap"; 
             }
         }
+        public function profile(){
+            $movie_names = [];
+            $results = Ticket::profile($_GET['customer_id']);
+            
+            foreach($results as $result){
+                $movie_id = $result->movie_id;
+                $movies = Movie::searchById($movie_id);
+                array_push($movie_names,$movies->movie_name);
+            }
+            //print_r($movie_names);
+            //print_r($result);
+            $data = array('tickets' =>$results,'movie_name'=>$movie_names);
+            $this->render('profile',$data);
+        }
 
     }
 ?>

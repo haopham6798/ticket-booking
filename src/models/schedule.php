@@ -82,7 +82,8 @@
         public function update($id, $dtime, $ci_id, $movie_id){
             $db = DB::getInstance();
             $req = $db->prepare("UPDATE schedule 
-                            SET schedule_id=:id, schedule_time_start=:dtime,cinema_cinema_id=:ci_id,movie_movie_id=:movie_id");
+                            SET schedule_id=:id, schedule_time_start=:dtime,cinema_cinema_id=:ci_id,movie_movie_id=:movie_id
+                            WHERE schedule_id=:id");
             $req->execute(array('id'=>$id, 'dtime'=>$dtime, 'ci_id'=>$ci_id, 'movie_id'=>$movie_id));
             
         }

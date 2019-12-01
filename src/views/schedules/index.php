@@ -18,7 +18,7 @@
             <td> 
                 <a href="index.php?controller=schedules&action=delete&schedule_id=<?php  echo $schedule->schedule_id ?>"><button
                     class="btn btn-secondary">Delele</button></a>
-                <a href="index.php?controller=schedules&action=update&schedule_id=<?php  echo $schedule->schedule_id ?>"><button
+                <a href="index.php?controller=schedules&action=renderUpdateForm&schedule_id=<?php  echo $schedule->schedule_id ?>"><button
                     class="btn btn-secondary">Update</button></a>
             </td>
         </tr>

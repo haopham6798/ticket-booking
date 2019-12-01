@@ -28,7 +28,7 @@
                       // print_r();
                       ?>
                       
-                      <a class="dropdown-item" href="index.php?kind_id=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
+                      <a class="dropdown-item" href="index.php?kind_name=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
                       <?php
                     }
 
@@ -43,6 +43,13 @@
         </li>
         <li>
           <a class="nav-link" href="index.php?controller=movies&action=add">Add</a>
+        </li>
+        <li>
+          <?php
+           if(isset($_SESSION['username'])){
+            echo "<a class='nav-link' href='index.php?controller=tickets&action=profile&customer_id=".$_SESSION['customer_id']."'>Profile</a>";
+           }
+          ?>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action="index.php?controller=movies&action=searchByName" method="post">

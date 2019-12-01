@@ -43,12 +43,7 @@
         public function create(){
             $result = Schedule::create($_POST['schedule_id'], $_POST['schedule_time_start'], 
                                         $_POST['cinema_id'], $_POST['movie_id']);
-            if($result){
-                echo "thanh cong";
-            }else{
-                echo "that bai";
-            }
-            
+            echo "<a href='index.php?controller=schedules'>Success</a>";
         }
 
         public function update(){
@@ -56,11 +51,9 @@
             $_POST['cinema_id'], $_POST['movie_id']);
            // $data = array('schedules' =>$result);
             //$this->render('udpate', $data);
-            if($result){
-                echo "thanh cong";
-            }else{
-                echo "that bai";
-            }
+            echo "<div class='alert alert-success' role='alert'>
+             <a href='index.php?controller=schedules'>Changed</a>
+                </div>";
         }
 
         public function find(){

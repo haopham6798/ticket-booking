@@ -58,6 +58,10 @@
             //print_r($result);
            
         }
+        public function profile(){
+            $result = Customer::profile($_GET['customer_id']);
+            print_r($result);
+        }
        
     }
 ?>

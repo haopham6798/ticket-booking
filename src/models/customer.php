@@ -53,6 +53,14 @@
             }
             return null;
         }
+        public function profile($customer_id){
+            $db=DB::getInstance();
+            $req = $db->prepare("SELECT * FROM customer as c inner join ticket as t
+                                ON c.customer_id = t.customer_customer_id
+                                WHERE c.customer_id=:customer_id");
+            $req->execute(array('customer_id' =>$customer_id));
+            return $req;
+        }
     }
 
 ?>
