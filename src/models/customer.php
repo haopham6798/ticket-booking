@@ -7,8 +7,7 @@
         public $email;
         public $password;
 
-        public function __construct($id, $name, $gender, $bd, $email, $password) {
-            $this->id= $id;
+        public function __construct($name, $gender, $bd, $email, $password) {
             $this->name= $name;
             $this->gender = $gender;
             $this->bd = $bd;
@@ -30,7 +29,7 @@
             //echo $req;
             $item = $req->fetch();
             if(isset($item['customer_email'])){
-                $customer = new Customer($item['customer_id'],$item['customer_name'], 
+                $customer = new Customer($item['customer_name'], 
                                 $item['customer_gender'], $item['customer_bd'],
                                 $item['customer_email'], $item['customer_password']);
                 return $customer;

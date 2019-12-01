@@ -35,27 +35,46 @@
             <div class="form-group row">
                 <label for="customer_password" class="col-md-4 col-form-label text-md-right">Password</label>
                 <div class="col-md-6">
-                    <input type="customer_password" id="customer_password" class="form-control" name="customer_password" required>
+                    <input type="password" id="customer_password" class="form-control" name="customer_password" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="confirm_password" class="col-md-4 col-form-label text-md-right">Re-enter Password</label>
+                <div class="col-md-6">
+                    <input type="password" id="confirm_password" class="form-control" name="confirm_password" required>
+                    <span id="message"></span>
                 </div>
             </div>
 
                     
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" >
                     Register
                 </button>
+                <span id="warning"></span>
             </div>
         </form>
-        <?php
-                if (isset($_POST['submit-btn'])){
-                     echo 'Tên đăng nhập là: ' . $_POST['email'];
-                    echo '<br/>';
-                    echo 'Mật khẩu là: ' . $_POST['password'];
-                    echo 'Ten là: ' . $_POST['name'];
-                    echo 'Gioi tinh là: ' . $_POST['gender'];
-                    echo 'Nam sinh là: ' . $_POST['bd'];
+
+        <script>
+        $(document).ready(function(){
+            $('#confirm_password').on('keyup', function () {
+            if ($('#customer_password').val() == $('#confirm_password').val()) {
+                $('#message').html('Matching').css('color', 'green');
+                $('#warning').remove();
+            } else 
+                $('#message').html('Not Matching').css('color', 'red');
+            });
+            
+            $("form").submit(function(e){
+                if ($('#customer_password').val() != $('#confirm_password').val()){
+                    e.preventDefault();
+                    $('#warning').html('Not Matching').addClass("alert alert-danger");
                 }
-        ?>
-        </form>
+            });
+        });
+           
+        </script>
+
     </body>
 </html>

@@ -28,8 +28,8 @@
                         if($_POST['password'] == $data['customer']->password){
                             //echo "dang nhap thanh cong";
                             $_SESSION['username'] = $data['customer']->name;
-                            $_SESSION['customer_id'] = $data['customer']->id;
-                            //echo $_SESSION['customer_id'];
+                            $_SESSION['id'] = $data['customer']->id;
+                            echo $_SESSION['username'];
                             echo "<a href='index.php?controller=movies'>Success Login! Continue</a>";
                         }else{
                             echo "<a href='index.php?controller=customers&action=renderLogin'>Wrong Password! Login Again</a>";
@@ -45,12 +45,18 @@
 
 
         public function register() {
-            if(isset($_POST['customer_email'])){
-            $result = Customer::create($_POST['customer_name'], $_POST['customer_gender'], 
+            $check_email = Customer::find($_POST['customer_email']);
+            if($check_email){
+                echo "<a href='index.php?controller=customers&action=renderRegister'>Email has been registerd</a>";
+            }else{
+                
+                $result = Customer::create($_POST['customer_name'], $_POST['customer_gender'], 
                 $_POST['customer_bd'], $_POST['customer_email'],$_POST['customer_password']);
+                echo "<a href='index.php?controller=movies'>Ban da dang ky thanh cong</a>";
             }
+           
             //print_r($result);
-            echo "<a href='index.php?controller=customers&action=renderLogin'>Ban da dang ky thanh cong</a>";
+           
         }
        
     }
