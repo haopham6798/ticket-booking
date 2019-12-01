@@ -76,7 +76,7 @@
                             <td>
                             <!-- https://www.youtube.com/embed/zpOULjyy-n8?rel=0 -->
                                 <input class="form-control" type="text" id="movie-trailer" name="movie_trailer" value="">
-                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
+                                <button id="btn-trailer" type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
                                     Show trailer
                                 </button>
                             </td>

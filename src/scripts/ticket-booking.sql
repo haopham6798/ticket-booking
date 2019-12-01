@@ -48,7 +48,7 @@ COLLATE = utf8_unicode_ci;
 -- Table `mydb`.`movie`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`movie` (
-  `movie_id` INT(11) NOT NULL,
+  `movie_id` INT(11) NOT NULL AUTO_INCREMENT,
   `movie_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `movie_length` INT(11) NOT NULL,
   `movie_kind` VARCHAR(45) CHARACTER SET 'utf8' NULL DEFAULT NULL,
@@ -66,7 +66,6 @@ COLLATE = utf8_unicode_ci;
 CREATE TABLE IF NOT EXISTS `mydb`.`schedule` (
   `schedule_id` INT(11) NOT NULL,
   `schedule_time_start` DATETIME NOT NULL,
-  `schedule_time_end` DATETIME NOT NULL,
   `cinema_cinema_id` INT(11) NOT NULL,
   `movie_movie_id` INT(11) NOT NULL,
   PRIMARY KEY (`schedule_id`, `cinema_cinema_id`, `movie_movie_id`),
@@ -108,7 +107,7 @@ COLLATE = utf8_unicode_ci;
 -- Table `mydb`.`ticket`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`ticket` (
-  `ticket_id` INT(11) NOT NULL,
+  `ticket_id` INT(11) NOT NULL AUTO_INCREMENT,
   `ticket_cost` FLOAT NOT NULL,
   `ticket_date` DATETIME NOT NULL,
   `seat_seat_id` CHAR(5) NOT NULL,

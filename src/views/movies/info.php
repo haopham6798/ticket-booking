@@ -32,6 +32,18 @@
                     </tr>
                 </table>
 
+                <table class="table">
+                    <tr>
+                        <td>
+                            <h2> Kind </h2>
+                            
+                        </td>
+                        <td>
+                            <h2> <?php echo $movie->movie_kind ?></h2>
+                        </td>
+                    </tr>
+                </table>
+
                 <table class="table">                
                     <tr>
                         <td>
@@ -49,6 +61,9 @@
                             <button class="btn btn-light"> <a href="index.php?controller=schedules&action=find&movie_id=<?php echo $movie->movie_id; ?>">
                                 Booking
                             </a> </button>
+                            <a href="index.php?controller=movies&action=delete&movie_id=<?php echo $movie->movie_id?>"> <button class="btn btn-light"> Delete</button></a>
+                            <a href="index.php?controller=movies&action=renderUpdateForm&movie_id=<?php echo $movie->movie_id?>"> <button class="btn btn-light"> Update</button></a>
+
                         </td>
                     </tr>
 
@@ -70,12 +85,15 @@
         <h5 class="modal-title" id="trailer-modal">Trailer</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
+          
         </button>
         </div>
 
         <div class="modal-body">
             <div class="z-depth-1-half mb-4 d-flex justify-content-center">
                 <div class="embed-responsive embed-responsive-16by9">
+                
+                <iframe id="trailer" class="embed-responsive-item" src=<?php echo $movie->movie_trailer; ?> allowfullscreen></iframe>
                 </div>
                 
             </div>

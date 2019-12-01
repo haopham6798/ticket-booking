@@ -122,5 +122,10 @@
             }
             return $schedulesID;
         }
+        public function delete($schedule_id){
+            $db = DB::getInstance();
+            $req->prepare("DELETE FROM movie WHERE movie_id = :movie_id");
+            $req->execute(array('movie_id'=>$movie_id));
+        }
     }
 ?>

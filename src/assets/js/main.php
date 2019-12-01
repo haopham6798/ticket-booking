@@ -14,50 +14,19 @@
                 }
             }
 
-            function dropdown() {
-                $("#kinds").change(function(){
- 
-                // get the selected user's id
-                var kind_key = $(this).find(":selected").val();
-
-                console.log(kind_key);
-
-                // load it in the userInfo div above
-                $('#list').load('index.php?controller=game&kind_key=' + kind_key);
-
-                });
-            }
-
-            function readVideoURL(input) {
-
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    
-
-                    reader.onload = function(e) {
-                        $('#trailer').attr('src', e.target.result);
-                    }
-
-
-                    reader.readAsDataURL(input.files[0]);
-                    console.log("hello world");
-                }
-            }
-
-            
 
             $("#img_input").change(function() {
                 readURL(this);
             });
-
-            $("#trailer_input").change(function() {
-                readVideoURL(this);
+            
+            $("#btn-trailer").click(function() {
+                // console.log($("#input-trailer").val());
+                url = 'https://www.youtube.com/embed/' + $("#movie-trailer").val().split('?')[1].substring(2);
+                // $("#movie-trailer").val().split('?')[1].substring(2);
+                console.log(url);
+                $("#trailer").attr('src', url) ;
+                $("#movie-trailer").val(url);
             });
-
-            dropdown();
-
-
 
             $("#btn-model-register").click(function () {
                 $('#login-modal').modal('hide');

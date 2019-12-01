@@ -37,14 +37,17 @@
 
         public function create() {
             $kindArr = implode("," , $_POST['movie_kind']);
+            print_r($kindArr);
             //echo $kindArr;
-            if(isset($_FILES['movie_picture'])){
+            if(isset($_FILES['movie_picture']) && getimagesize($_FILES['movie_picture']['tmp_name']) != false){
                 $picture = file_get_contents($_FILES['movie_picture']['tmp_name']);
                 $picture = addslashes($picture);
+                
+                //print_r("success");
             }
-            $movie = Movie::create($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], $picture);
-            //header("Location: index.php?controller=movies");
-            echo "<a href='index.php'>Continue</a>";
+            $movie = Movie::create($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], ''.$picture);
+            // header("Location: index.php?controller=movies");
+            // header('Location: index.php');
         }
 
         public function searchByName(){
@@ -87,7 +90,8 @@
         public function renderUpdateForm()
         {
           $movie = Movie::searchById($_GET['movie_id']);
-          $data = array('movie' => $movie);
+          $kinds =Kind::all();
+          $data = array('movie' => $movie, 'kinds'=>$kinds);
           
           $this->render('update', $data);
         }

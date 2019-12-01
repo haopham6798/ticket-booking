@@ -3,7 +3,7 @@
         <div>
             <form action="index.php?controller=schedules&action=create" method="POST">
             <div class="form-group">
-                <label for="schedule_id">Email address</label>
+                <label for="schedule_id">Schedule ID</label>
                 <input type="text" class="form-control" id="schedule_id" placeholder="Schedule ID" name="schedule_id">
             </div>
             <div class="form-group">

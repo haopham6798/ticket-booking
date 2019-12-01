@@ -23,7 +23,7 @@
                 
                 <td class="mb-8">
                     <div class="form-group" >
-                        <input type="text" class="form-control" id="movie_name" <name="movie_name" value=<?php echo $movie->movie_name ?> required>
+                        <textarea class="form-control" id="movie_name" name="movie_name" required><?php echo $movie->movie_name ?></textarea>
                     </div>
                    
                     <table class="table">
@@ -44,6 +44,7 @@
                         <?php
 
                         if(count($kinds) > 0) {
+                            //$kind_movie = explode(',',$movie_kind);
                         // print_r($kind->fetch_assoc());
                             foreach($kinds as $kind) {
                             
@@ -75,7 +76,7 @@
                             </td>
                             <td>
                             <!-- https://www.youtube.com/embed/zpOULjyy-n8?rel=0 -->
-                                <input class="form-control" type="text" id="movie-trailer" name="movie_trailer" value="">
+                                <input class="form-control" type="text" id="movie-trailer" name="movie_trailer" value=<?php echo $movie->movie_trailer?>>
                                 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#trailer-modal">
                                     Show trailer
                                 </button>
