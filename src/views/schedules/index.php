@@ -1,5 +1,7 @@
 <div class="container">
     <table class="table">
+        <tr> <a href="index.php?controller=schedules&action=create"><button
+                    class="btn btn-secondary">Create Schedule</button></a> </tr>
         <tr>
             <th>  Schedule ID </th>
             <th>  Time Start  </th>
