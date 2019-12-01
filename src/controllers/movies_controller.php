@@ -9,8 +9,14 @@
         }
 
         public function index() {
-            $movies = Movie::all();
+            
             $kinds = Kind::all();
+            if (isset($_GET['kind_id'])) {
+                $movies = Movie::searchByKind($_GET['kind_id']);
+            }
+            else {
+                $movies = Movie::all();
+            }
             $data = array('movies' => $movies, 'kinds' => $kinds);
             $this->render('index', $data);
         }
