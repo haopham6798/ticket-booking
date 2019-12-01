@@ -65,4 +65,19 @@
 
 
 
+        function showTime() {
+            $("#btn-schedule").click(function(){
+
+                // get the selected user's id
+                var dates = $(this).val();
+                
+                console.log(kind_key);
+
+                // load it in the userInfo div above
+                $('#show-time').text('<p>'+dates+'</p>');
+
+            });
+        };
+        // showTime();
+
 </script>
