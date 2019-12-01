@@ -50,10 +50,10 @@
         //create new movie
         public function create( $name, $length, $kind, $trailer, $picture){
             $db = DB::getInstance();
-            $req = $db->prepare("INSERT INTO movie (movie_name, movie_length,movie_kind, movie_trailer, movie_picture) 
-                     VALUES (:m_name, :m_length,:m_kind, :m_trailer, :m_picture)");
+            $req = $db->prepare("INSERT INTO movie ( movie_name, movie_length,movie_kind, movie_trailer, movie_picture) 
+                     VALUES (:m_name, :m_length,:m_kind, :m_trailer, '$picture')");
             $req->execute(array('m_name' => $name, 'm_length'=>$length, 'm_kind'=>$kind,
-                                 'm_trailer'=>$trailer, 'm_picture'=>$picture));
+                                 'm_trailer'=>$trailer));
         }
 
         //search movie by name
