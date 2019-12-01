@@ -2,6 +2,8 @@
     require_once('controllers/base_controller.php');
     require_once('models/movie.php');
     require_once('models/kind.php');
+    require_once('models/ticket.php');
+    require_once('models/schedule.php');
 
     class MoviesController extends BaseController {
         function __construct() {
@@ -37,7 +39,7 @@
 
         public function create() {
             $kindArr = implode("," , $_POST['movie_kind']);
-            print_r($kindArr);
+            //print_r($kindArr);
             //echo $kindArr;
             if(isset($_FILES['movie_picture']) && getimagesize($_FILES['movie_picture']['tmp_name']) != false){
                 $picture = file_get_contents($_FILES['movie_picture']['tmp_name']);
@@ -46,8 +48,7 @@
                 //print_r("success");
             }
             $movie = Movie::create($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], ''.$picture);
-            // header("Location: index.php?controller=movies");
-            // header('Location: index.php');
+            echo "<a href='index.php'>Continue</a>";
         }
 
         public function searchByName(){
@@ -103,8 +104,17 @@
                 $picture = file_get_contents($_FILES['movie_picture']['tmp_name']);
                 $picture = addslashes($picture);
             }
-            $movie = Movie::update($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], $picture);
+            $movie = Movie::update($_GET['movie_id'],$_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], $picture);
             //header("Location: index.php?controller=movies");
+            echo "<a href='index.php'>Continue</a>";
+        }
+
+
+        public function delete(){
+            echo $_GET['movie_id'];
+            $resultSchedule = Schedule::delete($_GET['movie_id']);
+            $resultTicket = Ticket::delete($_GET['movie_id']);
+            $resultMovie = Movie::delete($_GET['movie_id']);
             echo "<a href='index.php'>Continue</a>";
         }
 

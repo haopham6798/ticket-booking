@@ -1,6 +1,6 @@
 
 <div class="body">
-    <form class="form-horizontal" action="index.php?controller=movies&action=update" method="POST" enctype="multipart/form-data" >
+    <form class="form-horizontal" action="index.php?controller=movies&action=update&movie_id=<?php echo $movie->movie_id?>" method="POST" enctype="multipart/form-data" >
         <table class="table">
             <tr>
                 <td>

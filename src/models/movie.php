@@ -87,16 +87,16 @@
         public function update($movie_id ,$movie_name, $movie_length,$movie_kind, $movie_trailer, $movie_picture) {
             $db = DB::getInstance();
             $req = $db->prepare("UPDATE movie 
-                                SET movie_name = :movie_name, movie_length=:movie_length,
-                                movie_trailer = :movie_trailer, movie_picture = :movie_picture
+                                SET movie_name = :movie_name, movie_length=:movie_length, movie_kind=:movie_kind,
+                                movie_trailer = :movie_trailer, movie_picture = '$movie_picture'
                                 WHERE movie_id = :movie_id");
             $req->execute(array("movie_id" => $movie_id,"movie_name" => $movie_name, "movie_length" =>$movie_length, 
-                                 "movie_kind" =>$movie_kind,"movie_trailer"=>$movie_trailer, "movie_picture" =>$movie_picture));
+                                 "movie_kind" =>$movie_kind,"movie_trailer"=>$movie_trailer));
             
         }
         public function delete($movie_id){
             $db = DB::getInstance();
-            $req->prepare("DELETE FROM movie WHERE movie_id = :movie_id");
+            $req = $db->prepare("DELETE FROM movie WHERE movie_id = :movie_id");
             $req->execute(array('movie_id'=>$movie_id));
         }
        

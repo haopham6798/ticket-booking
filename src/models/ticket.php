@@ -5,7 +5,7 @@
         public $seat_id;
         public $movie_id;
         public $customer_id;
-        
+
         public function __construct($cost, $date, $seat_id,$movie_id, $customer_id) {
             $this->cost =$cost;
             $this->date= $date;
@@ -36,6 +36,11 @@
                 $item['seat_seat_id'],$item['movie_movie_id'], $item['customer_customer_id']);
             }
             return $tickets;
+        }
+        public function delete($movie_id){
+            $db = DB::getInstance();
+            $req=$db->prepare("DELETE FROM ticket WHERE movie_movie_id = :movie_id");
+            $req->execute(array('movie_id'=>$movie_id));
         }
         
     }

@@ -73,7 +73,7 @@
             // print_r(key($uses[0]));
             $use = $uses[0];
             foreach($use[key($use)] as $time) {
-                // print_r($time);
+                 print_r($time);
     ?>
 
     <a href="index.php?controller=tickets&movie_id=<?php 

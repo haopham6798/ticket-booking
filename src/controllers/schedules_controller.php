@@ -66,6 +66,10 @@
             $data = array('schedules'=>$result);
             $this->render('find', $data);
         }
+        public function delete(){
+            $result = Schedule::delete($_GET['schedule_id']);
+            echo "<a href='index.php'>Continue</a>";
+        }
       
     }
 ?>
