@@ -1,8 +1,9 @@
 <div class="container">
     <?php
-        
+
         foreach($schedules as $schedule) {
             
+
         }
         $days = array_unique($days);
         $sche_movies = array_unique($sche_movies);

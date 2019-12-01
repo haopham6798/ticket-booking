@@ -3,6 +3,7 @@
         $sches = [];
         $days = [];
         $movie_id;
+
         foreach($schedules as $schedule) {
             $movie_id = $schedule->movie_id;
             $sches[] = explode(" ", $schedule->schedule_time_start);
@@ -38,6 +39,7 @@
         }
     ?>
 
+
     <hr>
     <br><br>
 
@@ -59,6 +61,7 @@
             <?php echo($time); ?>
         </button>
     </a>
+
 
     <?php
                 }
