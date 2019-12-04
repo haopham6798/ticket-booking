@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enjoy your film!!!!!!</h1>
+        <h1>Enjoy your Movie</h1>
         <?php
             require_once('connection.php');
             require_once('views/layouts/header.php');

@@ -13,8 +13,8 @@
         public function index() {
             
             $kinds = Kind::all();
-            if (isset($_GET['kind_id'])) {
-                $movies = Movie::searchByKind($_GET['kind_id']);
+            if (isset($_GET['kind_name'])) {
+                $movies = Movie::searchByKind($_GET['kind_name']);
             }
             else {
                 $movies = Movie::all();
@@ -75,18 +75,18 @@
             }
         }
 
-        public function searchByKind(){
-            //echo $_POST['movie_kind'];
-           // $movies = Movie::searchByName($_POST['movie_kind']);
-            $movies = Movie::searchByKind($_GET['movie_kind']);
-            $data = array('movies' => $movies);
-            if($data){
-                $this->render('index', $data);
-                //print_r($data);
-            }else{
-                echo "ERROR";
-            }
-        }
+        // public function searchByKind(){
+        //     //echo $_POST['movie_kind'];
+        //    // $movies = Movie::searchByName($_POST['movie_kind']);
+        //     $movies = Movie::searchByKind($_GET['movie_kind']);
+        //     $data = array('movies' => $movies);
+        //     if($data){
+        //         $this->render('index', $data);
+        //         //print_r($data);
+        //     }else{
+        //         echo "ERROR";
+        //     }
+        // }
         
         public function renderUpdateForm()
         {
@@ -111,8 +111,8 @@
 
 
         public function delete(){
-            echo $_GET['movie_id'];
-            $resultSchedule = Schedule::delete($_GET['movie_id']);
+            //echo $_GET['movie_id'];
+            $resultSchedule = Schedule::deleteMovieId($_GET['movie_id']);
             $resultTicket = Ticket::delete($_GET['movie_id']);
             $resultMovie = Movie::delete($_GET['movie_id']);
             echo "<a href='index.php'>Continue</a>";

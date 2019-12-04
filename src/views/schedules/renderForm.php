@@ -16,9 +16,10 @@
                 <select name="cinema_id" class="form-control" aria-labelledby="cinema_id">
                     <?php
                         foreach($cinemas as $cinema){
+                            echo "<option class='dropdown-item' value=".$cinema->cinema_id. ">". $cinema->cinema_id ."</option>";
                         }
                     ?>
-                 <?php echo "<option class='dropdown-item' value=".$cinema->cinema_id. ">". $cinema->cinema_id ."</option>"?>
+                 
                 </select>
             </div>
             <div class="form-group">
@@ -26,9 +27,9 @@
                 <select name="movie_id" class="form-control" aria-labelledby="movie_id">
                     <?php
                         foreach($movies as $movie){
+                            echo "<option class='dropdown-item' value=".$movie->movie_id. ">". $movie->movie_id ."</option>";
                         }
                     ?>
-                    <?php echo "<option class='dropdown-item' value=".$movie->movie_id. ">". $movie->movie_id ."</option>"?>
                     <!-- <option class="dropdown-item" value=<?php //echo $movie->movie_id ?> ><?php //echo $movie->movie_id ?></option> -->
                 </select>
             </div>

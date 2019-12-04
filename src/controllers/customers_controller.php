@@ -25,11 +25,12 @@
                 if($result){
                     $data = array('customer' => $result);
                     if(isset($_POST['password'])){
-                        if($_POST['password'] == $data['customer']->password){
+                        $passwd = md5($_POST['password']);
+                        if($passwd == $data['customer']->password){
                             //echo "dang nhap thanh cong";
                             $_SESSION['username'] = $data['customer']->name;
                             $_SESSION['customer_id'] = $data['customer']->id;
-                            echo $_SESSION['username'];
+                            //echo $_SESSION['username'];
                             echo "<a href='index.php?controller=movies'>Success Login! Continue</a>";
                         }else{
                             echo "<a href='index.php?controller=customers&action=renderLogin'>Wrong Password! Login Again</a>";
@@ -49,19 +50,16 @@
             if($check_email){
                 echo "<a href='index.php?controller=customers&action=renderRegister'>Email has been registerd</a>";
             }else{
-                
+                $passwd = md5($_POST['customer_password']);
                 $result = Customer::create($_POST['customer_name'], $_POST['customer_gender'], 
-                $_POST['customer_bd'], $_POST['customer_email'],$_POST['customer_password']);
+                $_POST['customer_bd'], $_POST['customer_email'],$passwd);
                 echo "<a href='index.php?controller=movies'>Ban da dang ky thanh cong</a>";
             }
            
             //print_r($result);
            
         }
-        public function profile(){
-            $result = Customer::profile($_GET['customer_id']);
-            print_r($result);
-        }
+        
        
     }
 ?>

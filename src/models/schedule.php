@@ -127,5 +127,10 @@
             $req=$db->prepare("DELETE FROM schedule WHERE schedule_id = :schedule_id");
             $req->execute(array('schedule_id'=>$schedule_id));
         }
+        public function deleteMovieId($movie_id){
+            $db = DB::getInstance();
+            $req=$db->prepare("DELETE FROM schedule WHERE movie_movie_id = :movie_id");
+            $req->execute(array('movie_id'=>$movie_id));
+        }
     }
 ?>

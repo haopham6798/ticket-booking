@@ -13,9 +13,9 @@
             <label class="col-md-4 col-form-label text-md-right">Gender</label>
                 <div class="col-md-6 form-check-inline">
                         <label class="form-check-label" for="genderMale">Male</label>
-                        <input type="checkbox" id ="genderMale" class="form-check-input" name="customer_gender" value="1">
+                        <input type="radio" id ="genderMale" class="form-check-input" name="customer_gender" value="1">
                         <label class="form-check-label" for="genderFemale">Female</label>
-                        <input type="checkbox" id ="genderFemale" class="form-check-input" name="customer_gender" value="0">
+                        <input type="radio" id ="genderFemale" class="form-check-input" name="customer_gender" value="0">
                 </div>
             </div>
             <div class="form-group row">
