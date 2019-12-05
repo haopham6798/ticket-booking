@@ -43,7 +43,8 @@
         public function create(){
             $result = Schedule::create($_POST['schedule_id'], $_POST['schedule_time_start'], 
                                         $_POST['cinema_id'], $_POST['movie_id']);
-            echo "<a href='index.php?controller=schedules'>Success</a>";
+            header("Location: index.php?controller=schedules");                      
+            // echo "<a href='index.php?controller=schedules'>Success</a>";
         }
 
         public function update(){
@@ -51,9 +52,7 @@
             $_POST['cinema_id'], $_POST['movie_id']);
            // $data = array('schedules' =>$result);
             //$this->render('udpate', $data);
-            echo "<div class='alert alert-success' role='alert'>
-             <a href='index.php?controller=schedules'>Changed</a>
-                </div>";
+            header("Location: index.php?controller=schedules");
         }
 
         public function find(){
@@ -68,7 +67,7 @@
         }
         public function delete(){
             $result = Schedule::delete($_GET['schedule_id']);
-            echo "<a href='index.php'>Continue</a>";
+            eheader("Location: index.php?controller=schedules");
         }
       
     }

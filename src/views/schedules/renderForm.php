@@ -1,3 +1,4 @@
+
 <html>
     <body>
         <div>
@@ -8,7 +9,7 @@
             </div>
             <div class="form-group">
                 <label for="schedule_time_start">Time Start</label>
-                <input type="datetime-local" class="form-control" id="schedule_time_start" value="2019-01-01 00:00:00"name="schedule_time_start">
+                <input type="datetime-local" class="form-control" id="schedule_time_start" value="" name="schedule_time_start" required>
                 
             </div>
             <div class="form-group">
@@ -16,9 +17,10 @@
                 <select name="cinema_id" class="form-control" aria-labelledby="cinema_id">
                     <?php
                         foreach($cinemas as $cinema){
+                            echo "<option class='dropdown-item' value=".$cinema->cinema_id. ">". $cinema->cinema_id ."</option>";
                         }
                     ?>
-                 <?php echo "<option class='dropdown-item' value=".$cinema->cinema_id. ">". $cinema->cinema_id ."</option>"?>
+                 
                 </select>
             </div>
             <div class="form-group">
@@ -26,9 +28,9 @@
                 <select name="movie_id" class="form-control" aria-labelledby="movie_id">
                     <?php
                         foreach($movies as $movie){
+                            echo "<option class='dropdown-item' value=".$movie->movie_id. ">". $movie->movie_name ."</option>";
                         }
                     ?>
-                    <?php echo "<option class='dropdown-item' value=".$movie->movie_id. ">". $movie->movie_id ."</option>"?>
                     <!-- <option class="dropdown-item" value=<?php //echo $movie->movie_id ?> ><?php //echo $movie->movie_id ?></option> -->
                 </select>
             </div>

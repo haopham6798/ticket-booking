@@ -1,3 +1,4 @@
+
 <html>
     <body>
         <div>
@@ -8,7 +9,8 @@
             </div>
             <div class="form-group">
                 <label for="schedule_time_start">Time Start</label>
-                <input type="datetime-local" class="form-control" id="schedule_time_start" name="schedule_time_start" value=<?php echo $schedule->schedule_time_start?>>
+                <input type="datetime-local" class="form-control" id="schedule_time_start" name="schedule_time_start" 
+                value=<?php echo implode("T", explode(" ", $schedule->schedule_time_start));?>>
                 
             </div>
             <div class="form-group">
@@ -26,9 +28,18 @@
                 <select name="movie_id" class="form-control" aria-labelledby="movie_id">
                     <?php
                         foreach($movies as $movie){
+                    ?>
+                        <option class="dropdown-item" value=<?php echo $movie->movie_id ?> 
+                        <?php
+                            if ($schedule->movie_id == $movie->movie_id) {
+                                echo "selected";
+                            }
+                        ?>
+                        ><?php echo $movie->movie_name ?></option>
+                    <?php
                         }
                     ?>
-                    <option class="dropdown-item" value=<?php echo $movie->movie_id ?> ><?php echo $movie->movie_id ?></option>
+                    
                 </select>
             </div>
 

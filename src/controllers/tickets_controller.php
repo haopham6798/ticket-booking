@@ -21,19 +21,20 @@
                 $movie_name = $result->movie_name;
                 $this->render('index',array('movie_name'=>$movie_name, 'date' => $date, 'time' =>$time,'seat'=>$seat));
             }else{
-                // header("Location: index.php?controller=customers&action=renderLogin");   
+                header("Location: index.php?controller=customers&action=renderLogin");   
 
             }
 
         }
         public function book(){
             if(isset($_SESSION['username'])){
+                $customer_id =  $_SESSION['customer_id'];
                 $result = Movie::searchByName($_POST['movie_name']);
                 $customer = Customer::findByName($_POST['customer_name']);
                 //print_r($customer);
                 $ticket = Ticket::book($_POST['ticket_cost'], $_POST['ticket_date'],
                             $_POST['seat_id'],$result[0]->movie_id,$customer->id);
-                echo "<a href='index.php'>Dat ve Thanh cong</a>";
+                header("Location: index.php?controller=tickets&action=profile&customer_id=$customer_id");
             }else{
                 //alert("Hello\nHow are you?");
                 echo "chua dang nhap"; 

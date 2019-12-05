@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +10,6 @@
               <a class="btn btn-light dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Kind
               </a>
-
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <?php 
                     require_once('models/kind.php');
@@ -27,19 +19,15 @@
                     foreach($kinds as $kind) {
                       // print_r();
                       ?>
-                      
                       <a class="dropdown-item" href="index.php?controller=movies&kind_name=<?php echo $kind->kind_name; ?>"><?php echo $kind->kind_name; ?></a>
                       <?php
                     }
-
                   ?>
-                  
               </div>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?controller=schedules">Schedule</a>
-
         </li>
         <li>
           <a class="nav-link" href="index.php?controller=movies&action=add">Add</a>
@@ -57,16 +45,25 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <?php
-          if(isset($_SESSION['username'])){
-              echo "<button type='button' class='btn btn-light' >
-                      <a href='logout.php'>Log Out</a>
-                      </button>";
-          }else{
-              echo "<button type='button' class='btn btn-light' >
-                      <a href='index.php?controller=customers&action=renderLogin'>Login</a>
-                      </button>";
-          }
+        if(isset($_SESSION['username'])){
+      ?>
+      <div class="dropdown">
+              <a class="btn btn-light dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $_SESSION['username']; ?>
+              </a>
+              <div class="dropdown-menu btn btn-light" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="logout.php">Log Out</a>
+              </div>
+          </div>
+      <?php
+      // echo "<button type='button' class='btn btn-light' >
+      //         <a href='logout.php'>Log Out</a>
+      //         </button>";
+
+      }else{
+          echo "<button type='button' class='btn btn-light' >
+                  <a href='index.php?controller=customers&action=renderLogin'>Login</a>
+                  </button>";
+      }
       ?>
   </nav>
-</body>
-</html>

@@ -1,3 +1,4 @@
+
 <div class="container">
     <?php
         $sches = [];
@@ -44,7 +45,10 @@
     <br><br>
 
     <?php
-if (!empty($use)) {
+if (!empty($uses)) {
+    if(!empty($uses)){
+
+   
     if (isset($_GET['date']))  {
 
         $date = $_GET['date'];
@@ -75,7 +79,7 @@ if (!empty($use)) {
                        
                 $use = $uses[0];
                 foreach($use[key($use)] as $time) {
-                    print_r($time);
+                    // print_r($time);
     ?>
 
     <a href="index.php?controller=tickets&movie_id=<?php 
@@ -87,13 +91,11 @@ if (!empty($use)) {
 
     <?php
                 }
-            
+        }
     }
 }
 else {
     echo "there are no schedule for this movie";
 }
     ?>
-    
 </div>
-
