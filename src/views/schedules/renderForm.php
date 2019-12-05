@@ -29,6 +29,7 @@
                     <?php
                         foreach($movies as $movie){
                             echo "<option class='dropdown-item' value=".$movie->movie_id. ">". $movie->movie_name ."</option>";
+
                         }
                     ?>
                     <!-- <option class="dropdown-item" value=<?php //echo $movie->movie_id ?> ><?php //echo $movie->movie_id ?></option> -->

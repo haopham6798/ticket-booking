@@ -15,7 +15,7 @@
             $kinds = Kind::all();
             if (isset($_GET['kind_name'])) {
                 $movies = Movie::searchByKind($_GET['kind_name']);
-                // print_r("hello");
+
             }
             else {
                 $movies = Movie::all();

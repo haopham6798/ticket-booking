@@ -45,7 +45,7 @@
     <br><br>
 
     <?php
-if (!empty($uses)) {
+
     if(!empty($uses)){
 
    
@@ -96,6 +96,7 @@ if (!empty($uses)) {
 }
 else {
     echo "there are no schedule for this movie";
+
 }
     ?>
 </div>
