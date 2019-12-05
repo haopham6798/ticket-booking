@@ -71,6 +71,7 @@
 
         public function searchByKind($m_kind) {
             $result=[];
+            $m_kind = trim($m_kind);
             $db = DB::getInstance();
             $req = $db->query("SELECT * from movie WHERE movie_kind LIKE '%$m_kind%'");
             //$req->execute(array('m_name' => $m_name));

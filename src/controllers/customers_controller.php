@@ -31,7 +31,7 @@
                             $_SESSION['username'] = $data['customer']->name;
                             $_SESSION['customer_id'] = $data['customer']->id;
                             //echo $_SESSION['username'];
-                            echo "<a href='index.php?controller=movies'>Success Login! Continue</a>";
+                            header("Location: index.php");
                         }else{
                             echo "<a href='index.php?controller=customers&action=renderLogin'>Wrong Password! Login Again</a>";
                         }

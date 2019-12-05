@@ -6,14 +6,20 @@
                 <td>
                     <div class="file-field input-img">
                         <div class="z-depth-1-half mb-4 d-flex justify-content-center">
-                            <img style="width: 20rem; height: 25rem" id="img" src="./assets/images/empty.jpg" class="img-fluid img"
-                                alt="example placeholder">
+                            <img style="width: 20rem; height: 25rem" id="img" 
+                                src="data:image/*;base64,<?php echo base64_encode( $movie->movie_picture ); ?>" class="img-fluid img"
+                                alt="movie picture">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="custom-file input-picture">
-                                <input type="file" class="custom-file-input" id="img_input" name="movie_picture" 
-                                    aria-describedby="movie_picture" accept="image/*">
+                                <input 
+                                    type="file" 
+                                    class="custom-file-input" 
+                                    id="img_input" 
+                                    name="movie_picture" 
+                                    aria-describedby="movie_picture" 
+                                    accept="image/*">
                                 <label class="custom-file-label" for="img_input">Choose picture</label>
                             </div>
                         </div>
@@ -44,28 +50,40 @@
                         <?php
 
                         if(count($kinds) > 0) {
-                            //$kind_movie = explode(',',$movie_kind);
                         // print_r($kind->fetch_assoc());
                             foreach($kinds as $kind) {
-                            
+                                
                         ?>
 
                         <!-- gia tri kind_id dc chon se luu vao mang movie_kind -->
-                        <span>
-                            <label><?php echo $kind->kind_name."  "?> 
-                                <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_name?>'>
-                                <span class="checkmark"></span>
-                            </label>   
-                        </span>
+                            
+                            <span>
+                                <label><?php echo $kind->kind_name."  "?> 
+                                    <input class="game-kind" type="checkbox" name='movie_kind[]' value='<?php echo $kind->kind_name?>'
+                                    <?php 
+                                        // decode from kind string
+                                        $kind_movies = explode(',',$movie->movie_kind);
+                                        foreach($kind_movies as $val) {
+                                            // print_r($val."---------".$kind);
+
+                                            if ($val == $kind->kind_name) {
+                                            echo 'checked';
+                                            }
+                                            
+                                        }
+                                    ?>
+                                    >
+                                    <span class="checkmark"></span>
+                                </label>   
+                            </span>
 
                                 
                         <?php
+                                }
                             }
-                        }
+                        
                         else {
                             echo  "<div class='item'>There is no kind, please add some kind!!!</div>";
-
-
                         }
                         ?>
                     </div>

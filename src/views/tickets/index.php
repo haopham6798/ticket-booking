@@ -1,3 +1,4 @@
+
 <form action='index.php?controller=tickets&action=book' method='post'>
     <div class="form-group">
         <label for="customer_name">Customer</label>
