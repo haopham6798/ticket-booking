@@ -7,7 +7,7 @@
     $index = 0;
     if(count($movies) > 0) {
         foreach($movies as $movie) {
-        if ($index == 3) echo "<tr>";
+        if ($index == 0) echo "<tr>";
     ?>
       <td>
       
@@ -29,7 +29,7 @@
     <?php
         if ($index == 3) echo "</tr>";
         // echo $index;
-        $index = ($index+1)%4;
+        $index = ($index+1)%3;
       }
     }
     else {

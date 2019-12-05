@@ -71,11 +71,9 @@
 
         public function searchByKind($m_kind) {
             $result=[];
+            $m_kind = trim($m_kind);
             $db = DB::getInstance();
-            $req = $db->query("SELECT movie_id, movie_name, movie_length,movie_kind, movie_trailer, movie_picture 
-                FROM kind as k inner join movie_has_kind as mk on k.kind_id = mk.kind_kind_id
-                         inner join movie as m on m.movie_id =mk.movie_movie_id
-                                        WHERE k.kind_name LIKE '%$m_kind%'");
+            $req = $db->query("SELECT * from movie WHERE movie_kind LIKE '%$m_kind%'");
             //$req->execute(array('m_name' => $m_name));
             foreach ($req->fetchAll() as $item){
                 $result[] = new Movie($item['movie_id'], $item['movie_name'],

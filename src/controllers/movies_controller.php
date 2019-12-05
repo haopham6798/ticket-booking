@@ -13,11 +13,14 @@
         public function index() {
             
             $kinds = Kind::all();
-            if (isset($_GET['kind_id'])) {
-                $movies = Movie::searchByKind($_GET['kind_id']);
+            if (isset($_GET['kind_name'])) {
+                $movies = Movie::searchByKind($_GET['kind_name']);
+                print_r("hello");
+                
             }
             else {
                 $movies = Movie::all();
+                print_r("olles");
             }
             $data = array('movies' => $movies, 'kinds' => $kinds);
             $this->render('index', $data);
@@ -75,18 +78,18 @@
             }
         }
 
-        public function searchByKind(){
-            //echo $_POST['movie_kind'];
-           // $movies = Movie::searchByName($_POST['movie_kind']);
-            $movies = Movie::searchByKind($_GET['movie_kind']);
-            $data = array('movies' => $movies);
-            if($data){
-                $this->render('index', $data);
-                //print_r($data);
-            }else{
-                echo "ERROR";
-            }
-        }
+        // public function searchByKind(){
+        //     //echo $_POST['movie_kind'];
+        //    // $movies = Movie::searchByName($_POST['movie_kind']);
+        //     $movies = Movie::searchByKind($_GET['movie_kind']);
+        //     $data = array('movies' => $movies);
+        //     if($data){
+        //         $this->render('index', $data);
+        //         //print_r($data);
+        //     }else{
+        //         echo "ERROR";
+        //     }
+        // }
         
         public function renderUpdateForm()
         {
