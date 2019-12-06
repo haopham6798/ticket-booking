@@ -1,7 +1,41 @@
-/* #movie-image {
-    background-color: antiquewhite;
-} */
+body {
+    background-color: #ccc7ba !important;
+}
+.con-custom{
+    margin-top: 20px;
+}
+.nav-custom{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 body {
     background-color: black;
 }
@@ -49,4 +83,4 @@ body {
 #ck-button input:checked + span {
     background-color:#911;
     color:#fff;
-}
+} */

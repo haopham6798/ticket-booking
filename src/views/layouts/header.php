@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-custom" style="background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); !important">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href=index.php>Home</a>
+    <a class="navbar-brand" href=index.php><i class="fas fa-home"></i></a>
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item ">
           <div class="dropdown">
-              <a class="btn btn-light dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn" style="background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); !important; border: none" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Kind
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -42,13 +42,13 @@
       </ul>
       <form class="form-inline my-2 my-lg-0" action="index.php?controller=movies&action=searchByName" method="post">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="movie_name">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn my-2 my-sm-0" style=" border:none; background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);" type="submit"><i class="fas fa-search"></i></button>
       </form>
       <?php
         if(isset($_SESSION['username'])){
       ?>
       <div class="dropdown">
-              <a class="btn btn-light dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn"  role="button" style="border:none; background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php echo $_SESSION['username']; ?>
               </a>
               <div class="dropdown-menu btn btn-light" aria-labelledby="dropdownMenuLink">

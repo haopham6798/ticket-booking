@@ -8,6 +8,7 @@
             <th>  Time Start  </th>
             <th>  Cinema</th>
             <th>  movie </th>
+            <th>  </th>
         </tr>
         <?php
             foreach($schedules as $schedule) {
@@ -33,6 +34,7 @@
         ?>
 
     </table>
+    
     
 </div>
 

@@ -50,7 +50,7 @@
                 //print_r("success");
             }
             $movie = Movie::create($_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], ''.$picture);
-            header("Location: http://localhost/ticket-booking/src/index.php?controller=movies");
+            header("Location: index.php?controller=movies");
         }
 
         public function searchByName(){
@@ -111,7 +111,7 @@
                 $picture = addslashes($movie->movie_picture);
             }
             $movie = Movie::update($_GET['movie_id'],$_POST['movie_name'], $_POST['movie_length'], $kindArr, $_POST['movie_trailer'], $picture);
-            header("Location: http://localhost/ticket-booking/src/index.php?controller=movies");
+            header("Location: index.php?controller=movies");
             // echo "<a href='index.php'>Continue</a>";
         }
 
@@ -121,7 +121,7 @@
             $resultSchedule = Schedule::deleteMovieId($_GET['movie_id']);
             $resultTicket = Ticket::delete($_GET['movie_id']);
             $resultMovie = Movie::delete($_GET['movie_id']);
-            header("Location: http://localhost/ticket-booking/src/index.php?controller=movies");
+            header("Location: index.php?controller=movies");
         }
 
     }

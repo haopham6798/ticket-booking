@@ -25,7 +25,7 @@
       <td>
       
       
-        <div class="card rounded" style="width: 16rem; height: 20rem">
+        <div class="card rounded border-info" style="width: 16rem; height: 20rem">
               <!-- 320x317 -->
           <a href="index.php?controller=movies&action=info&movie_id=<?php echo $movie->movie_id?>">
           <img  style="width: 100%; height: 15rem"class="card-img-top" src="data:image/*;base64,<?php echo base64_encode( $movie->movie_picture ); ?>" /></a>

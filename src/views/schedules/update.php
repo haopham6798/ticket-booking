@@ -43,7 +43,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-secondary">Update</button>
             </form>
         </div>
     </body>

@@ -106,7 +106,7 @@
 
                     <div class="float-right">
                         
-                        <button type="submit" class="btn btn-primary offset-md-4" >Submit</button>
+                        <button type="submit" class="btn btn-primary offset-md-4" >Update</button>
                 
                     </div>
                 

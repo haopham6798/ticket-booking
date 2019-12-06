@@ -93,7 +93,6 @@
                 }
         }
     }
-}
 else {
     echo "there are no schedule for this movie";
 
